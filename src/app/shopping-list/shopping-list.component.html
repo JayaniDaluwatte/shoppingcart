@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-3"></div>
+  <div class="col-md-3">
+    <div class="col-md-5" style="text-align:right"><h5 class="fontColor">Item Count:</h5></div>
+    <div class="col-md-7" style="color:red; text-align:left"><h5 class="bold">{{count}}</h5></div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-5"><h5 class="fontColor">Total Price:</h5></div>
+    <div class="col-md-7" style="color:red; text-align:left"><h5 class="bold">Rs {{sum}}</h5></div>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive">          
+      <table class="table table-hover table-bordered">
+        <thead class="headerColor">
+          <tr>
+            <th class="col-md-1" style="text-align:center">#</th>
+            <th class="col-md-2">Item</th>
+            <th class="col-md-4">Description</th>
+            <th class="col-md-1">Image</th>
+            <th class="col-md-1">Unit Price</th>
+            <th class="col-md-1">Quantity</th>
+            <th class="col-md-1">Total Price</th>
+            <th class="col-md-1"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItems; let i=index">
+           <td style="text-align:center">{{i+1}}</td>
+           <td>{{item.name}}</td>
+           <td>{{item.description}}</td>
+           <td><img src="{{item.imagePath}}" width="30" height="30"></td>
+           <td>{{item.unitPrice}}</td>
+           <td><input type="number" class="form-control" style="text-align:right" width="50" min="1" value="{{item.quantity}}" (change)="onChange($event, i)" #quantity></td>
+           <td>{{item.totalPrice}}</td>
+           <td>
+             <button class="btn btn-danger" (click)="onRemove(i)"><span class="glyphicon glyphicon-remove"></span></button>
+             <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil" (click)="onUpdate(i)"></span></button>
+           </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-2">
+    <sc-menubar></sc-menubar>
+  </div>
+
+  <div class="col-md-10">
+    <div class="row" style="padding:10px; padding-bottom:0px">
+      <button class="btn btn-success pull-right" (click)="onNavigate()">View Cart</button>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-7 box">
+        <div class="col-md-6">
+          <h5>{{selectedAcssessory.name}}</h5>
+          <hr> 
+          <img class="img-responsive" src="{{selectedAcssessory.imagePath[imageIndex]}}" #image style="height: 210px">
+          <h5>{{selectedAcssessory.description}}</h5>   
+          <h5 class="price">Rs {{selectedAcssessory.price}}</h5>
+        </div>
+        <div class="col-md-6">
+          <div class="row priceDetail">
+            <div class="col-md-6">
+              <label>Quantity</label>
+              <input type="number" class="form-control" min="1" value="1" (change)="onChange($event)">
+            </div>
+            <div class="col-md-6">
+              <label>Price</label>
+              <input class="form-control" value="{{totalPrice}}" disabled>
+            </div>
+          </div>
+          <div class="row" style="margin:0px">
+            <button class="btn btn-primary" style="margin-top:5px; margin-bottom:10px" (click)="onAdd()">Add to Cart</button>
+          </div>
+        </div>  
+      </div>  
+    </div>
+
+    <div class="row imageArray">
+        <ul class="list-group">
+          <div class="listItem" [ngClass]="(i===imageIndex)?'borderColor':''" *ngFor="let imagepath of selectedAcssessory.imagePath; let i = index" (click)="onClick(i)">
+            <img src="{{imagepath}}" style="width:50px; height:50px; margin:2px">
+          </div>
+        </ul>
+    </div>
+
+  </div>
+</div>
+

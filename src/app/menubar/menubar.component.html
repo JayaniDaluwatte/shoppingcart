@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <a class="list-group-item menuitem" (click)="onClick('all')">All Items</a>
+      <a class="list-group-item menuitem" *ngFor="let category of categories" (click)="onClick(category.categoryId)">
+        {{category.categoryName}}
+        <!--a href="#" class="list-group-item" *ngFor="let subCategory of subCategories">{{subCategory.subCategoryName}}</a-->
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="list-group">
+      <a href="#" class="list-group-item active activemenubar">Kids</a>
+      <a href="#" class="list-group-item">Frock</a>
+      <a href="#" class="list-group-item">Tshirt</a>
+      <a href="#" class="list-group-item">Trouser</a>
+      <a href="#" class="list-group-item">Scaff</a>
+      <a href="#" class="list-group-item">Shoes</a>
+
+      <a href="#" class="list-group-item active activemenubar">Ladies</a>
+      <a href="#" class="list-group-item">Frock</a>
+      <a href="#" class="list-group-item">Tshirt / Shirt</a>
+      <a href="#" class="list-group-item">Trouser</a>
+      <a href="#" class="list-group-item">Saree</a>
+      <a href="#" class="list-group-item">Shoes</a>
+      <a href="#" class="list-group-item">Hand-bag</a>
+
+      <a href="#" class="list-group-item active activemenubar">Gents</a>
+      <a href="#" class="list-group-item">Shirt</a>
+      <a href="#" class="list-group-item">Tshirt</a>
+      <a href="#" class="list-group-item">Trouser</a>
+      <a href="#" class="list-group-item">Shoes</a>
+    </div>
+  </div>
+</div>
+

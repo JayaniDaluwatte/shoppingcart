@@ -1,0 +1,136 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6 formgrid">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text"
+                class="form-control"
+                id="firstName"
+                placeholder="First Name"
+                formControlName="firstName"
+                [ngClass]="{'has-error':!userForm.controls['firstName'].valid && userForm.controls['firstName'].touched}">
+          <div *ngIf="userForm.controls['firstName'].hasError('required') && userForm.controls['firstName'].touched" class="alert alert-danger">
+            You must include first name.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Last Name"
+                formControlName="lastName"
+                [ngClass]="{'has-error':!userForm.controls['lastName'].valid && userForm.controls['lastName'].touched}">
+          <div *ngIf="userForm.controls['lastName'].hasError('required') && userForm.controls['lastName'].touched" class="alert alert-danger">
+            You must include last name.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nic">NIC</label>
+          <input type="text"
+                class="form-control"
+                id="nic"
+                placeholder="xxxxxxxxxv"
+                formControlName="nic"
+                [ngClass]="{'has-error':!userForm.controls['nic'].valid && userForm.controls['nic'].touched}">
+          <div *ngIf="userForm.controls['nic'].hasError('required') && userForm.controls['nic'].touched" class="alert alert-danger">
+            You must include your NIC.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text"
+                class="form-control"
+                id="country"
+                placeholder="country"
+                formControlName="country"
+                [ngClass]="{'has-error':!userForm.controls['country'].valid && userForm.controls['country'].touched}">
+          <div *ngIf="userForm.controls['country'].hasError('required') && userForm.controls['country'].touched" class="alert alert-danger">
+            You must include country.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="mobileNo">Contact Number</label>
+          <input type="text"
+                class="form-control"
+                id="mobileNo"
+                placeholder="mobileNo"
+                formControlName="mobileNo"
+                [ngClass]="{'has-error':!userForm.controls['mobileNo'].valid && userForm.controls['mobileNo'].touched}">      </div>
+          <div *ngIf="userForm.controls['mobileNo'].hasError('pattern')" class="alert alert-danger">
+            Enter a valid email.
+          </div>
+          <div *ngIf="userForm.controls['mobileNo'].hasError('minLength')" class="alert alert-danger">
+            Should be 10 characters
+          </div>
+          <div *ngIf="userForm.controls['mobileNo'].hasError('maxLength')" class="alert alert-danger">
+            Should be 10 characters
+          </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <div class="radio" *ngFor="let g of genders">
+          <label>
+            <input type="radio"
+                  id="gender" 
+                  formControlName="gender"
+                  [value]="g">
+            {{g}}
+          </label>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text"
+                class="form-control"
+                id="email"
+                placeholder="youremail@domain.com"
+                formControlName="email"
+                [ngClass]="{'has-error':!userForm.controls['email'].valid && userForm.controls['email'].touched}"
+                #email>
+          <div *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched" class="alert alert-danger">
+            You must include email.
+          </div>
+          <div *ngIf="userForm.controls['email'].hasError('pattern')" class="alert alert-danger">
+            Enter a valid email.
+          </div>
+        </div>
+
+        <div>
+          <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                class="form-control"
+                id="passowrd"
+                placeholder="Password"
+                formControlName="password"
+                [ngClass]="{'has-error':!userForm.controls['password'].valid && userForm.controls['password'].touched}">
+          <div *ngIf="userForm.controls['password'].hasError('required') && userForm.controls['password'].touched" class="alert alert-danger">
+            You must include a password.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmEmail">Confirm Password</label>
+          <input type="password"
+                class="form-control"
+                id="confirmPassword"
+                placeholder="Re-enter password"
+                formControlName="confirmPassword"
+                [ngClass]="{'has-error':!userForm.controls['confirmPassword'].valid && userForm.controls['confirmPassword'].touched}">
+          <div *ngIf="userForm.controls['confirmPassword'].hasError('required') && userForm.controls['confirmPassword'].touched" class="alert alert-danger">
+            You must re-enter your password
+          </div>
+        </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="onReset()">Reset</button>
+      </form>
+    </div>
+
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<a [routerLink]="accessory.id" class="list-group-item clearfix listItem">
+  <div class="row">
+    <div class="col-md-12">
+      <img class="img-responsive" src="{{accessory.imagePath[0]}}" style="height:100px; margin-bottom:5px">
+      <hr>
+      <h5 class="list-group-item-heading">{{accessory.name}}</h5>
+      <h5 class="list-group-item-text price">Rs {{accessory.price}}</h5>  
+    </div>    
+  </div>
+</a>
+
+ <!--div class="col-xs-3"-->
+    <!--ul>
+      <li *ngFor="let image of accessory.imagePath"><img src="{{image}}" style="width: 80px; height: 80px"></li>
+    </ul-->

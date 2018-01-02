@@ -1,0 +1,31 @@
+.price {
+    color: red;
+    font-weight: bold;
+}
+
+.box {
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.imageArray {
+    margin-top: 5px;
+}
+
+.listItem {
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    width: 54px;
+    height: 54px;
+    float: left;
+    cursor: pointer;
+}
+
+.priceDetail {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.borderColor {
+    border: 1px solid #428bca;
+}
